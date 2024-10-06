@@ -35,6 +35,7 @@ class Bank:
 
         if from_account and to_account:
             from_account.withdraw(amount)
+            to_account.deposit(amount)
         else:
             raise ValueError("Invalid account number")
 
@@ -47,6 +48,5 @@ def main():
 
     print(bank.get_account("12345").get_balance())  # Expected output: 800
     print(bank.get_account("67890").get_balance())  # Expected output: 700
-
-if __name__ == "__main__":
-    main()
+    
+    bank.get_account("12345").withdraw(1500)
